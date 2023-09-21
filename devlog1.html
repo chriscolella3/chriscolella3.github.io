@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clean Blog - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="assets/css/blogstyles.css" rel="stylesheet" />
+
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            .column {
+              float: left;
+              width: 33.33%;
+              padding: 5px;
+            }
+            
+            /* Clearfix (clear floats) */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            </style>
+
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="blogindex.html">Back To Blog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/unitystockimage.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Devlog #1</h1>
+                            <h2 class="subheading">First Steps</h2>
+                            <span class="meta">
+                                Posted September 20th, 2023
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>-->
+           <!--<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>-->
+
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">The Idea</h2>
+
+                            <p style="text-indent: 25px;">
+                                Personally, I love idle games. I've been playing them for many years. 
+                                For reference, an idle game or otherwise known as an incremental game, is a genre of game that uses its primary feature of just idling, as the main driving factor to play the game.
+                                Usually there is  minimum or zero player interaction needed.
+                                The simplest example of a game like this would be <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">Cookie Clicker</a>. 
+                                All you do is click a cookie and receive in-game currency, then buy upgrades  with said currency that help you click the cookie more. And it exponentially keeps growing from there.
+                            </p>
+
+                            <p style="text-indent: 25px;">
+                                    So what better way to start than to make a game from a genre that I'm already familiar with?
+                                    And since I'm starting small, I decided to make a game for mobile, as I feel having a small project scale would make it easier to start.
+                            </p>
+                            <h2 class="section-heading">The First Steps</h2>
+                            <p style="text-indent: 25px;">
+                                Back in August I made my first attempt to begin the journey of making a mobile game with zero experience.
+                                I found a random tutorial on Youtube on how to make an idle game in the Unity Game Engine. So I began developing.
+                            </p>
+
+                        <div class="row">
+                            <div class="column">
+                              <img src="assets/img/unitystock3.png" style="width:100%" height="480">
+                            </div>
+                            <div class="column">
+                              <img src="assets/img/unitystock2.png" style="width:250%">
+                            </div>
+                          </div>
+
+                            <p style="text-indent: 25px;">
+                                At the start, I was able to add a button connected to a counter. And every time the button was clicked, you received +1 to your currency.
+                                The next addition was to make some upgrades to make the button clicking more efficient, as well as adding a way to spend the currency you earned<i> (Not shown in picture above).</i>
+                                But as I watched this tutorial, I realized it strayed from my original idea. So I thought to myself: <i>What do I want to add next?</i>.
+                                An upgrade menu.
+                            </p>
+
+                            <p style="text-indent: 25px;">
+                                I accomplished this by finding a string of random tutorials and mashing them all together. 
+                                Thus, I managed to add an upgrade button that changes the scene the player is viewing. 
+                                Then a system that lets the player scroll up and down through upgrades.
+                                This also acted as the home for all of the upgrade buttons.
+                            </p>
+                            
+                            <div class="row">
+                                <div class="column">
+                                  <img src="assets/img/unitystock4.png" style="width:100%" height="480">
+                                </div>
+                                <div class="column">
+                                  <img src="assets/img/unitystock5.png" style="width:264%">
+                                </div>
+                              </div>
+
+                            <p style="text-indent: 25px;">
+                                I won't lie, during the process to just make two scenes, some buttons, and a counter, Unity made this difficult at times. 
+                                In retrospect, I think I chose too difficult of an engine to just randomly pickup.
+                                But regardless of difficulty, I wasn't liking the workflow of working in Unity.
+                                I definitely needed something easier to digest to help me understand core ideas and game systems.
+
+                            </p> 
+                        <h2 class="section-heading">The Switch</h2>
+                            <p style="text-indent: 25px;">
+                                I started doing some research on what other game engines I could use. And that was when I discovered the Godot Game Engine.
+                                I figured I should give it a shot to see what it had to offer. Maybe I'd like it more than Unity.
+                            </p>
+                       
+                        <center><a><img class="img-fluid" src="assets/logos/godot.png" style="width:50%"></a></center>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chris-colella/" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chriscolella3" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="assets/js/scripts.js"></script>
+    </body>
+</html>

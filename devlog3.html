@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dev Blog #3</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="assets/css/blogstyles.css" rel="stylesheet" />
+
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            .column {
+              float: left;
+              width: 33.33%;
+              padding: 5px;
+            }
+            
+            /* Clearfix (clear floats) */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            </style>
+            
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="blogindex.html">Back To Devlog Homepage</a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/godotbackground2.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Devlog #3</h1>
+                            <h2 class="subheading">The Real Development Starts</h2>
+                            <span class="meta">
+                                Posted September 24, 2023
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>-->
+           <!--<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>-->
+            <!--<a><img class="img-fluid" src="assets/img/stockgodotimage.png"/></a>-->
+
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">The Original Idea</h2>
+                        <p style="text-indent: 25px;">
+                            Originally, I wanted to make an idle game. But got stuck trying make my idea unique. 
+                            I started searching the Google Play store for ideas and to see what games already existed.
+                            After not benefitting from my search, I started to consider what other genres of games that I enjoyed.
+                            Similar to my love for idle games, I also enjoyed <a href="https://en.wikipedia.org/wiki/Bullet_hell" target="_blank">bullet hell games</a>.
+                            In short, a Bullet hell game consists of an extremely  large amount of projectiles being fired at the player. 
+                            The player then has to dodge these projectiles without getting hit.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            Remembering this game genre , I immediately thought about combining it with my game idea. An idle bullet hell. 
+                        </p>
+
+                        <h2 class="section-heading">No Idea What I'm Doing</h2>
+                        <p style="text-indent: 25px;">
+                            Now that I have somewhat of an idea, and some experience using Godot, its time to begin the development.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            Starting a new project was incredibly daunting and I wasn't sure what to start with first.
+                            I knew I had to start somewhere, so I decided to start small. 
+                            I need to have a clear goal in mind so I don't overwhelm myself.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            The first feature I wanted to tackle was player movement. 
+                            Using knowledge from the Dodge The Creeps tutorial, I was able to get movement working pretty fast.
+                            I also figured out how to add a background to the game as well.
+                            I do have to note, I am using WASD to move the player. 
+                            This initially was for testing, as the final game would have a joystick for movement.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            I do have to note, I am using WASD to move the player. 
+                            This initially was for testing, as the final game would have a joystick for movement.
+                        </p>
+
+                    <div class="row">
+                        <div class="column">
+                            <img src="assets/img/godotstock12.png" style="width:100%" height="400">
+                          </div>
+                          <div class="column">
+                            <img src="assets/img/godotstock11.png" style="width:100%" height="400">
+                          </div>
+                          <div class="column">
+                            <img src="assets/gif/playermovement.gif" style="width:100%" height="400">
+                          </div>
+                    </div>
+
+                        <h2 class="section-heading">Firing Projectiles</h2>
+                        <p style="text-indent: 25px;">
+                            The next feature I wanted to implement was projectiles firing from the player. 
+                            Implementing this feature took some time as I tried to find a suitable tutorial to learn from.
+                            Eventually, I found a simple projectile tutorial and added them to my player.
+                        </p>
+
+                        <div class="row">
+                            <div class="column">
+                                <img class="img-fluid" src="assets/gif/player.gif" style="width:105%" height="400">
+                            </div>
+                              <div class="column">
+                                <img src="assets/img/godotstock14.png" style="width:300%">
+                            </div>
+                        </div>
+
+                        <p style="text-indent: 25px;">
+                            The function on line 5 is responsible for moving the projectile.
+                            It is one of the many built-in functions in Godot.
+                            It runs 60 times a second.
+                            Using this function, I was able to constantly set the position of a projectile along the Y-axis.
+                            Giving it the illusion of being fired.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            The function on line 8 is responsible for deleting the projectile when it's safely offscreen. 
+                            It's connected to a VisibleOnScreenNotifier2D Node that emits a signal when whatever it's attached to goes offscreen.
+                            This is to save resources and to avoid unnecessary entity overflow.
+                        </p>
+
+                        <h2 class="section-heading">Unforeseen Changes</h2>
+                        <p style="text-indent: 25px;">
+                            Feeling pretty good about my progress, I decided to check out the Google Play store again for ideas.
+                            It was at this time that I would stumble upon a game called <a href="https://play.google.com/store/apps/details?id=com.genetix.lonetower&hl=en_US&gl=US" target="_blank">Lone Tower</a>.
+                            Upon seeing this game, I was hooked. The idea was so simple, yet it was fun to play.
+                            Without even second-guessing it, I knew what kind of game I was going to be making instead.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chris-colella/" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chriscolella3" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="assets/js/scripts.js"></script>
+    </body>
+</html>

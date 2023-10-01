@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #3</title>
+        <title>Devlog #6</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,15 +47,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/godotbackground2.png')">
+        <header class="masthead" style="background-image: url('assets/img/godotbackground3.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #3</h1>
-                            <h2 class="subheading">The Real Development Starts</h2>
+                            <h1>Devlog #6</h1>
+                            <h2 class="subheading">A Breakthrough</h2>
                             <span class="meta">
-                                Posted September 24, 2023
+                                Posted October 1, 2023
                             </span>
                         </div>
                     </div>
@@ -72,92 +72,110 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">The Original Idea</h2>
+                        <h2 class="section-heading">Enemy Homing</h2>
                         <p style="text-indent: 25px;">
-                            Originally, I wanted to make an idle game. But got stuck trying make my idea unique. 
-                            I started searching the Google Play store for ideas and to see what games already existed.
-                            After not benefitting from my search, I started to consider what other genres of games that I enjoyed.
-                            Similar to my love for idle games, I also enjoyed <a href="https://en.wikipedia.org/wiki/Bullet_hell" target="_blank">bullet hell games</a>.
-                            In short, a Bullet hell game consists of an extremely  large amount of projectiles being fired at the player. 
-                            The player then has to dodge these projectiles without getting hit.
+                            When it came to enemy homing, I tried multiple different ways to implement this feature.
+                            Most of them did not work, until one of the few that I tried last.
+                            This was the closest attempt to having a working homing system.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Remembering this game genre , I immediately thought about combining it with my game idea. An idle bullet hell. 
+                            An enemy is fed the towers coordinates and should travel towards it.
+                            But that didn't happen.
                         </p>
 
-                        <h2 class="section-heading">No Idea What I'm Doing</h2>
-                        <p style="text-indent: 25px;">
-                            Now that I have somewhat of an idea, and some experience using Godot, its time to begin the development.
-                        </p>
+                        <center><img class="img-fluid" src="assets/gif/enemyhoming1.gif" style="width:50%"></center>
 
                         <p style="text-indent: 25px;">
-                            Starting a new project was incredibly daunting and I wasn't sure what to start with first.
-                            I knew I had to start somewhere, so I decided to start small. 
-                            I need to have a clear goal in mind so I don't overwhelm myself.
-                        </p>
-
-                        <p style="text-indent: 25px;">
-                            The first feature I wanted to tackle was player movement. 
-                            Using knowledge from the Dodge The Creeps tutorial, I was able to get movement working pretty fast.
-                            I also figured out how to add a background to the game as well.
-                            I do have to note, I am using WASD to move the player. 
-                            This initially was for testing, as the final game would have a joystick for movement.
+                            Enemies were homing into the top left corner of the screen and I had no idea why.
+                            I tried many things in an attempt to fix this bug.
+                            Until I realized something.
+                            When I select the tower, and move it with the arrow keys, it updates the coordinates in the console.
+                            As I discovered this, my jaw dropped.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            I do have to note, I am using WASD to move the player. 
-                            This initially was for testing, as the final game would have a joystick for movement.
+                            The enemy was being fed the wrong coordinates.
+                            Instead of the tower's coordinates, it was using [0,0].
+
+                            This was when I discovered Vector2 which is a 2D vector using floating point coordinates.
+                            This means it uses (x,y).
+                            So I created a new Vector2 variable and used this instead of getting the coordinates another way.
+                            This was the result.
+                            <i>(Only the skull was hooked up to the homing system)</i>
                         </p>
 
-                    <div class="row">
-                        <div class="column">
-                            <img src="assets/img/godotstock12.png" style="width:100%" height="400">
-                          </div>
-                          <div class="column">
-                            <img src="assets/img/godotstock11.png" style="width:100%" height="400">
-                          </div>
-                          <div class="column">
-                            <img src="assets/gif/playermovement.gif" style="width:100%" height="400">
-                          </div>
-                    </div>
+                        <center><img class="img-fluid" src="assets/gif/enemyhoming2.gif" style="width:50%"></center>
+                        <br>
+                        <center><img  src="assets/img/enemyhomingfunction.png" style="width:100%"></center>
 
-                        <h2 class="section-heading">Firing Projectiles</h2>
+
                         <p style="text-indent: 25px;">
-                            The next feature I wanted to implement was projectiles firing from the player. 
-                            Implementing this feature took some time as I tried to find a suitable tutorial to learn from.
-                            Eventually, I found a simple projectile tutorial and added it to my player.
+                            It finally works!!!
+                            I spent so much time debugging and troubleshooting this, and to have it working is an amazing feeling.
+                            Now I need to hook the other three enemy variations up to the homing system.
+                        </p>
+
+                        <h2 class="section-heading">Waves</h2>
+                        <p style="text-indent: 25px;">
+                            Moving onto the next key feature, I felt the next step of development should be waves.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            I was able to find another tutorial for enemy waves in 2D
+                            With the tutorial, I created the UI as a node in the main scene.
+                            I added labels for the current wave and the "Next Wave" text.
+                        </p>
+                        <center><img class="img-fluid" src="assets/img/waveui2.png" style="width:50%">
+                        <img class="img-fluid" src="assets/img/waveui.png" style="width:50%"></center>
+
+                        <p style="text-indent: 25px;">
+                            It took some time to implement and mess with, but eventually got a crude version working.
+                            Though it isn't the prettiest, I can always improve it later.
                         </p>
 
                         <div class="row">
                             <div class="column">
-                                <img class="img-fluid" src="assets/gif/player.gif" style="width:105%" height="400">
+                                <img src="assets/gif/enemyhoming3.gif" style="width:150%">
                             </div>
-                              <div class="column">
-                                <img src="assets/img/godotstock14.png" style="width:300%">
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
                             </div>
-                        </div>
-
-                        <p style="text-indent: 25px;">
-                            The function on line 5 is responsible for moving the projectile.
-                            It is one of the many built-in functions in Godot.
-                            It runs 60 times a second.
-                            Using this function, I was able to constantly set the position of a projectile along the Y-axis.
-                            Giving it the illusion of being fired.
+                            <div class="column">
+                                <img src="assets/gif/enemyhoming4.gif" style="width:150%">
+                            </div>
+                          </div>
+                          
+                          <p style="text-indent: 25px;">
+                            It was a lot simpler than I thought it would be.
+                            The waves are only comprised of two short scripts and the driving code.
                         </p>
 
-                        <p style="text-indent: 25px;">
-                            The function on line 8 is responsible for deleting the projectile when it's safely offscreen. 
-                            It's connected to a VisibleOnScreenNotifier2D Node that emits a signal when whatever it's attached to goes offscreen.
-                            This is to save resources and to avoid unnecessary entity overflow.
-                        </p>
+                        <div class="row">
+                            <div class="column">
+                                <img src="assets/img/nextwavefunction.png" style="width:200%">
+                            </div>
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/globalfunction.png" style="width:175%">
+                            </div>
+                          </div>
 
-                        <h2 class="section-heading">Unforeseen Changes</h2>
+                          <img class="img-fluid" src="assets/img/driver function.png" style="width:50%"></center>
+
+                          <p style="text-indent: 25px;">
+                            In short, the wave_counter function is put into the enemy script.
+                            It can be fired either when the enemy is on screen, or off screen.
+                            Then, once the threshold of enemies has been spawned/removed, stop the wave and show the "Next Wave" text.
+                            Also, the timer variable is what determines the time between spawns.
+                            Stopping the timer gives a brief lull between waves.
+                        </p>
+                       
+                        <h2 class="section-heading">Advanced Waves</h2>
                         <p style="text-indent: 25px;">
-                            Feeling pretty good about my progress, I decided to check out the Google Play store again for ideas.
-                            It was at this time that I would stumble upon a game called <a href="https://play.google.com/store/apps/details?id=com.genetix.lonetower&hl=en_US&gl=US" target="_blank">Lone Tower</a>.
-                            Upon seeing this game, I was hooked. The idea was so simple, yet it was fun to play.
-                            Without even second-guessing it, I knew what kind of game I was going to be making instead.
+                            Continued in next devlog.
                         </p>
 
                     </div>

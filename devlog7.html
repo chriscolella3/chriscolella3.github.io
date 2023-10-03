@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #4</title>
+        <title>Devlog #7</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,15 +47,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/godotstock1.png')">
+        <header class="masthead" style="background-image: url('assets/img/godotbackground5.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #4</h1>
-                            <h2 class="subheading">First Steps Again</h2>
+                            <h1>Devlog #7</h1>
+                            <h2 class="subheading">Better Waves</h2>
                             <span class="meta">
-                                Posted September 25, 2023
+                                Posted October 2, 2023
                             </span>
                         </div>
                     </div>
@@ -72,73 +72,99 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">A New Idea</h2>
+                        <h2 class="section-heading">Waves Part 2</h2>
                         <p style="text-indent: 25px;">
-                            When I saw <a href="https://play.google.com/store/apps/details?id=com.genetix.lonetower&hl=en_US&gl=US" target="_blank">Lone Tower</a> and tried it out for a bit, I knew I wanted to make a game similar to it.
+                            Continuing from Devlog #6, I added the homing system to the other enemy types.
+                            Now, all four enemies can randomly spawn from any spawn point.
+                            I also made the next wave text easier to see.
                         </p>
 
+                        <center><img src="assets/gif/enemyhoming5.gif" style="width:50%"></center>
+
                         <p style="text-indent: 25px;">
-                            To be brief, Lone Tower is an idle tower defense game. 
-                            Enemies spawn from every direction and attempt to damage your tower in the center of the screen.
-                            To defend, you can upgrade the tower to make it stronger to survive each wave of enemies.
-                            The tower also fires arrows at enemies in proximity to the tower.
+                            The only part the gif above does not show is a spawning bug after wave 1.
+                            As you can see, enemies spawn fairly often, but after wave one, they slow down a lot.
+                            It took me a while to figure out what was wrong, and yet it was so simple.
                         </p>
+
                         
                         <p style="text-indent: 25px;">
-                            This was the type of idle game that I wanted to make.
+                            The image below is the code responsible for letting the next wave spawn.
+                            I pinpointed the bug on line 47. 
+                            Initially, the enemy spawn timer is set to one second. One enemy per second.
+                            Once line 47 fires, I thought it was telling this timer to pause for three seconds, and then resume.
+                            In reality, it was resetting the spawn timer to a three-second delay, instead of a one-second delay.
                         </p>
 
-                        <h2 class="section-heading">The Second Steps</h2>
-                        <p style="text-indent: 25px;">
-                            Since I started these devlogs a tad late into my development, I'm going to summarize what I've been able to implement.
-                            I'm doing this so my devlogs and new developments are synced.
-                            For reference I started development on September 17th, 2023.
-                        </p>
-
-                        <p style="text-indent: 25px;">
-                            Thankfully, I did not need to create a fresh project. 
-                            Since Godot is comprised of scenes, I just took the player I had out of the main scene.
-                            So I still had my settings configured, and my background created.
-                            But now I needed to figure out the order of the features I needed to implement.
-                            Eventually, I concluded that I needed to make the tower first. So that’s where I started.
-                        </p>
-
-                        <h2 class="section-heading">A New Journey Begins</h2>
-                        <p style="text-indent: 25px;">
-                            First, I needed assets to use so I found some free 2D pixel art assets on <a href="https://itch.io/" target="_blank">itch.io</a>
-                            Second, I began thinking about how this tower entity would work.
-                            Until I realized that the tower was equivalent to a player, and I already knew how to build a player.
-                            I also reused the collision detection script from Dodge The Creeps.
-                        </p>
-
-                        <img class="img-fluid" src="assets/img/tower.png" style="width:85%">
-                        <br><br>
-                        <center><img class="img-fluid" src="assets/img/skull.png" style="width:15%"></center>
-                        <br>
-                        <img  src="assets/img/spawnpath.png" style="width:105%">
-                        <p style="text-indent: 25px;">
-                            Next, I needed an enemy to attack the tower. 
-                            I also reused the enemy script from Dodge The Creeps to spawn and move enemies.
-                            This was done using a node called Path2D that the enemies will follow<i> (Shown Above).</i>
-                            By reusing it I was able to accomplish the following:
-                            An enemy would spawn, then follow the path until it collided with the tower.
-                        </p>
-
-                        <center><img  src="assets/img/enemyspawn.png" style="width:50%"></center>
+                        <center><img class="img-fluid" src="assets/img/driver function.png" style="width:50%"></center>
 
                         <p style="text-indent: 25px;">
-                            I did have my fair share of issues with the collision not working.
-                            Enemies would pass through the tower, collide and crash the debug, collide with eachother, and so on.
-                            For a little bit it was a mess. 
-                            Heres what the enemy scene looks like.
+                            This was when I realized I needed to redo the wave system.
+                            I felt the way it was written would not allow for a proper wave spawning system to work.
+                            It sucks because I'm excited to be making progress, but this is how the cookie crumbles sometimes.
                         </p>
 
-                        <img  src="assets/img/enemyscene.png" style="width:50%">
+                        <p style="text-indent: 25px;">
+                            I'm learning that this is just a part of the development process.
+                            You spend time implementing something, and when it works it's the greatest feeling a developer can have.
+                            But, sometimes it isn't what you think it will be when it's done.
+                            With that being said, I need to find a better long-term solution.
+                        </p>
 
-                        <h2 class="section-heading"><u><a href="devlog5.html">Continued In Devlog #5</a></u></h2> 
-                        
+                        <h2 class="section-heading">A New Wave System</h2>
+                        <p style="text-indent: 25px;">
+                            I remembered seeing a few other tutorials on Waves when searching, so I decided to try one of them out.
+                            It was a tutorial for wave spawning in a 3D game.
+                            When I initially saw it, I overlooked it as it wasn't 2D-related.
+                            But on second thought, I figured the code should still work the same way.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            While I was watching the video, small issues popped up.
+                            I noticed that the video is 2 years old, an older version of Godot was being used.
+                            Since I'm using Godot 4, some functions have been renamed/changed.
+                            I did run into some bugs and errors along the way and I will admit I was stumped for some time.
+                            These problems never deterred me though, only slowed me down.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            I spent about an hour troubleshooting until it happened.
+                            The first wave of the new system was finally working.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            This tutorial was hands down the best one I've seen so far.
+                            It allowed me to learn a few new tips and tricks.
+                            It also helped me build a modular system for unique waves.
+                            Each wave has it's own number of enemies, and delay between each spawn.
+                        </p>
+
+                        <div class="row">
+                            <div class="column">
+                                <img src="assets/img/wavedetails.png" style="width:200%" >
+                            </div>
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img class="img-fluid" src="assets/img/waves.png" style="width:150%">
+                            </div>
+                          </div>
+
+                        <p style="text-indent: 25px;">
+                            Wave 1 has 5 enemies with 1 second between each spawn.
+                            Wave 2 has 50 enemies with 0.5 seconds between each spawn.
+                            I also temporarily disabled the UI text for waves.
+                            That is something I'll also have to fix later.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            Heres what the final product looks like.
+                        </p>
+                          <center><img class="img-fluid" src="assets/gif/betterwaves.gif" style="width:50%"></center>
+
                     </div>
-                </div> 
+                </div>
             </div>
         </article>
         <!-- Footer-->

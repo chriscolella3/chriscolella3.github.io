@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #7</title>
+        <title>Devlog #8</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,15 +47,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/godotbackground5.png')">
+        <header class="masthead" style="background-image: url('assets/img/labelbackground.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #7</h1>
-                            <h2 class="subheading">Better Waves</h2>
+                            <h1>Devlog #8</h1>
+                            <h2 class="subheading">Frustrated</h2>
                             <span class="meta">
-                                Posted October 2, 2023
+                                Posted October 9, 2023
                             </span>
                         </div>
                     </div>
@@ -72,99 +72,91 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">Waves Part 2</h2>
+                        <h2 class="section-heading">What I've been working on</h2>
                         <p style="text-indent: 25px;">
-                            Continuing from Devlog #6, I added the homing system to the other enemy types.
-                            Now, all four enemies can randomly spawn from any spawn point.
-                            I also made the next wave text easier to see.
-                        </p>
-
-                        <center><img src="assets/gif/enemyhoming5.gif" style="width:50%"></center>
-
-                        <p style="text-indent: 25px;">
-                            The only part the gif above does not show is a spawning bug after wave 1.
-                            As you can see, enemies spawn fairly often, but after wave one, they slow down a lot.
-                            It took me a while to figure out what was wrong, and yet it was so simple.
-                        </p>
-
-                        
-                        <p style="text-indent: 25px;">
-                            The image below is the code responsible for letting the next wave spawn.
-                            I pinpointed the bug on line 47. 
-                            Initially, the enemy spawn timer is set to one second. One enemy per second.
-                            Once line 47 fires, I thought it was telling this timer to pause for three seconds, and then resume.
-                            In reality, it was resetting the spawn timer to a three-second delay, instead of a one-second delay.
-                        </p>
-
-                        <center><img class="img-fluid" src="assets/img/driver function.png" style="width:50%"></center>
-
-                        <p style="text-indent: 25px;">
-                            This was when I realized I needed to redo the wave system.
-                            I felt the way it was written would not allow for a proper wave spawning system to work.
-                            It sucks because I'm excited to be making progress, but this is how the cookie crumbles sometimes.
+                            After adding a wave system, the next feature I wanted to add was a weapon to attack the enemies.
+                            This feature would consist of a few new additions to the tower scene.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            I'm learning that this is just a part of the development process.
-                            You spend time implementing something, and when it works it's the greatest feeling a developer can have.
-                            But, sometimes it isn't what you think it will be when it's done.
-                            With that being said, I need to find a better long-term solution.
+                            First, a weapon sprite will sit on top of the tower.
+                            This weapon will have a range that will determine how close an enemy is.
+                            Once an enemy is withing range, the weapon will look at the enemy.
+                            I achieved this by using an Area2D and setting up a signal to fire when anything entered the area.
                         </p>
 
-                        <h2 class="section-heading">A New Wave System</h2>
-                        <p style="text-indent: 25px;">
-                            I remembered seeing a few other tutorials on Waves when searching, so I decided to try one of them out.
-                            It was a tutorial for wave spawning in a 3D game.
-                            When I initially saw it, I overlooked it as it wasn't 2D-related.
-                            But on second thought, I figured the code should still work the same way.
-                        </p>
+                    <center><img class="img-fluid" src="assets/img/area.png" style="width:50%"></center>
 
                         <p style="text-indent: 25px;">
-                            While I was watching the video, small issues popped up.
-                            I noticed that the video is 2 years old, an older version of Godot was being used.
-                            Since I'm using Godot 4, some functions have been renamed/changed.
-                            I did run into some bugs and errors along the way and I will admit I was stumped for some time.
-                            These problems never deterred me though, only slowed me down.
+                            Next, once an enemy is in range, its coordinates are grabbed and fed to the weapon sprite.
+                            Using the look_at() function will change the direction the sprite is looking.
+                            This was when I ran into my first of many problems.
                         </p>
 
+                        <h2 class="section-heading">Frustration</h2>
+
                         <p style="text-indent: 25px;">
-                            I spent about an hour troubleshooting until it happened.
-                            The first wave of the new system was finally working.
+                            Once I had this system set up, I noticed the weapon sprite would look at the first enemy, and then look in the completely wrong direction after.
+                            I set up some print statements to see where the sprite was being told to look.
+                            The coordinates I got back were extremely large and inaccurate.
+                            Initially, I was dumbfounded. I had no idea why I was getting large coordinates.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            This tutorial was hands down the best one I've seen so far.
-                            It allowed me to learn a few new tips and tricks.
-                            It also helped me build a modular system for unique waves.
-                            Each wave has it's own number of enemies, and delay between each spawn.
+                            Initially, I was dumbfounded. I had no idea why I was getting large coordinates.
+                            I added a label to the enemy, and had the contents of it be the coordinates of itself.
+                            Even as I'm writing this devlog, I have no idea why this happened.
                         </p>
 
-                        <div class="row">
-                            <div class="column">
-                                <img src="assets/img/wavedetails.png" style="width:200%" >
-                            </div>
-                            <div class="column">
-                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img class="img-fluid" src="assets/img/waves.png" style="width:150%">
-                            </div>
-                          </div>
+                    <center><img class="img-fluid" src="assets/img/coordinates.png" style="width:50%"></center>
+                    <center><img class="img-fluid" src="assets/img/coordinates2.png" style="width:50%"></center>
 
                         <p style="text-indent: 25px;">
-                            Wave 1 has 5 enemies with 1 second between each spawn.
-                            Wave 2 has 50 enemies with 0.5 seconds between each spawn.
-                            I also temporarily disabled the UI text for waves.
-                            That is something I'll also have to fix later.
+                            As a form of debugging, I wanted to see if I could even make the weapon sprite look in a proper direction.
+                            Instead of the enemies position, the sprite would look at my mouse position.
+                        </p>
+
+                    <center>
+                        <img class="img-fluid" src="assets/img/globalposition.png" style="width:100%">
+                        <br><br>
+                        <img class="img-fluid" src="assets/img/mousepos1.png" style="width:50%">
+                        <br><br>
+                        <img class="img-fluid" src="assets/img/mousepos2.png" style="width:50%">
+                    </center>
+
+                        <p style="text-indent: 25px;">
+                            This at least confirmed it was possible, and that was all I needed to know.
+                            But I had to come up with another way to get an enemy's coordinates.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Heres what the final product looks like.
+                            Shortly after I came up with a promising idea.
+                            Since I used a label to display the mouse coordinates under an enemy, I could instead get the coordinates of the label.
+                            It wouldn't be precise, but it gives the correct direction to look in.
                         </p>
-                          <center><img class="img-fluid" src="assets/gif/betterwaves.gif" style="width:50%"></center>
 
-                          <h2 class="section-heading"><u><a href="devlog8.html">Continued In  Devlog #8: Frustrated</a></u></h2> 
+                    <center><img class="img-fluid" src="assets/img/labelposition.png" style="width:100%"></center>
 
+                    <center>
+                        <img class="img-fluid" src="assets/img/labellocation.png" style="width:45%">
+                        <img class="img-fluid" src="assets/img/debug.png" style="width:54%">
+                    </center>
+
+                    <p style="text-indent: 25px;">
+                        I had high hopes for this solution, but instead of incredibly large coordinates, I was getting nothing.
+                        Visually the coordinates are correct, but when I try to pass this variable across scripts, it would become [0,0].
+                        I deduced this to be only grabbing the coordinates of the label in its scene. Which was [0,0].
+                    </p>
+
+                        <p style="text-indent: 25px;">
+                            After trying solution after solution, this has been stumping me for the last few days.
+                            I've even considered changing the design of the weapon feature altogether.
+                            If I can't find a solution soon, I'll have to change the feature.
+                        </p>
+                       
+                        <p style="text-indent: 25px;">
+                            Continued in next devlog.
+                        </p>
 
                     </div>
                 </div>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #8</title>
+        <title>Devlog #9</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,15 +47,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/labelbackground.png')">
+        <header class="masthead" style="background-image: url('assets/img/godotstock1.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #8</h1>
-                            <h2 class="subheading">Frustrated</h2>
+                            <h1>Devlog #9</h1>
+                            <h2 class="subheading">Bugs Be Gone</h2>
                             <span class="meta">
-                                Posted October 9, 2023
+                                Posted October 15, 2023
                             </span>
                         </div>
                     </div>
@@ -72,89 +72,87 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">What I've been working on</h2>
+                        <h2 class="section-heading">Programming Woes</h2>
                         <p style="text-indent: 25px;">
-                            After adding a wave system, the next feature I wanted to add was a weapon to attack the enemies.
-                            This feature would consist of a few new additions to the tower scene.
+                            There comes a moment in programming in which you realize an answer was under your nose the whole time.
+                            Sometimes you find it, and sometimes you don't.
+                            Fortunately, today I was able to find the bug that stopped my development for 2 weeks.
+                        </p>
+
+                        <h2 class="section-heading">I'm Blind</h2>
+                        <p style="text-indent: 25px;">
+                            When you use an unused parameter in a function, the debugger asks you to prefix it with an underscore.
+                            Since I'm used to using the physics process function for testing, I added an underscore to prevent this debug error.
+                            And since I'm conditioned to do this, I also did it to a very important variable within my range function.
+                        </p>
+
+                        <center><img class="img-fluid" src="assets/img/parameter.png" style="width:100%"></center>
+                        <center><img class="img-fluid" src="assets/img/underscore.png" style="width:100%"></center>
+
+                        <p style="text-indent: 25px;">
+                            With the help of a good friend of mine who is also a developer, and we just so happened to be talking about Godot/Game Dev.
+                            When I mentioned this bug that's been stumping me lately, we started to reanalyze the problem.
+                            After explaining the bug, solutions I've tried, and a tad more debugging, he suggested I try to use "body.global_position".
                         </p>
 
                         <p style="text-indent: 25px;">
-                            First, a weapon sprite will sit on top of the tower.
-                            This weapon will have a range that will determine how close an enemy is.
-                            Once an enemy is withing range, the weapon will look at the enemy.
-                            I achieved this by using an Area2D and setting up a signal to fire when anything entered the area.
-                        </p>
-
-                    <center><img class="img-fluid" src="assets/img/area.png" style="width:50%"></center>
-
-                        <p style="text-indent: 25px;">
-                            Next, once an enemy is in range, its coordinates are grabbed and fed to the weapon sprite.
-                            Using the look_at() function will change the direction the sprite is looking.
-                            This was when I ran into my first of many problems.
-                        </p>
-
-                        <h2 class="section-heading">Frustration</h2>
-
-                        <p style="text-indent: 25px;">
-                            Once I had this system set up, I noticed the weapon sprite would look at the first enemy, and then look in the completely wrong direction after.
-                            I set up some print statements to see where the sprite was being told to look.
-                            The coordinates I got back were extremely large and inaccurate.
-                            Initially, I was dumbfounded. I had no idea why I was getting large coordinates.
+                            And then it clicked. 
+                            I hadn't been using the body variable because I put an underscore in front of it and forgot about it.
+                            By using the body variable, I now have the exact coordinates of each body entering the range.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Initially, I was dumbfounded. I had no idea why I was getting large coordinates.
-                            I added a label to the enemy, and had the contents of it be the coordinates of itself.
-                            Even as I'm writing this devlog, I have no idea why this happened.
+                            And just like that, it was working.
+                            Sort of.
+                            It is a tad hard to see in the GIF, but the weapon sprite is now turning towards each enemy.
                         </p>
+                        <center><img class="img-fluid" src="assets/gif/wrongturning.gif" style="width:50%"></center>
 
-                    <center><img class="img-fluid" src="assets/img/coordinates.png" style="width:50%"></center>
-                    <center><img class="img-fluid" src="assets/img/coordinates2.png" style="width:50%"></center>
-
+                        <h2 class="section-heading">Fine Tuning</h2>
                         <p style="text-indent: 25px;">
-                            As a form of debugging, I wanted to see if I could even make the weapon sprite look in a proper direction.
-                            Instead of the enemies position, the sprite would look at my mouse position.
-                        </p>
-
-                    <center>
-                        <img class="img-fluid" src="assets/img/globalposition.png" style="width:100%">
-                        <br><br>
-                        <img class="img-fluid" src="assets/img/mousepos1.png" style="width:50%">
-                        <br><br>
-                        <img class="img-fluid" src="assets/img/mousepos2.png" style="width:50%">
-                    </center>
-
-                        <p style="text-indent: 25px;">
-                            This at least confirmed it was possible, and that was all I needed to know.
-                            But I had to come up with another way to get an enemy's coordinates.
+                            Even while writing this devlog I'm still ecstatic that this bug has finally been squashed.
+                            I was almost about to post a thread in the Godot community discord for help too. OK, back on topic.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Shortly after I came up with a promising idea.
-                            Since I used a label to display the mouse coordinates under an enemy, I could instead get the coordinates of the label.
-                            It wouldn't be precise, but it gives the correct direction to look in.
+                            Now that the weapon sprite turns properly (FINALLY), I need to debug why the tip of the weapon is not pointing correctly.
+                            To temporarily replace the weapon sprite, I made a gigantic arrow sprite to help with that.
+                            To isolate which side was turning, my friend suggested to coloring both sides to determine this.
                         </p>
 
-                    <center><img class="img-fluid" src="assets/img/labelposition.png" style="width:100%"></center>
-
-                    <center>
-                        <img class="img-fluid" src="assets/img/labellocation.png" style="width:45%">
-                        <img class="img-fluid" src="assets/img/debug.png" style="width:54%">
-                    </center>
-
-                    <p style="text-indent: 25px;">
-                        I had high hopes for this solution, but instead of incredibly large coordinates, I was getting nothing.
-                        Visually the coordinates are correct, but when I try to pass this variable across scripts, it would become [0,0].
-                        I deduced this to be only grabbing the coordinates of the label in its scene. Which was [0,0].
-                    </p>
+                        <div class="row">
+                            <div class="column">
+                                <center><img class="img-fluid" src="assets/img/arroworiginal.png" style="width:70%"></center>
+                            </div>
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <center><img src="assets/gif/wrongarrow.gif" style="width:145%"></center>
+                            </div>
+                          </div>
 
                         <p style="text-indent: 25px;">
-                            After trying solution after solution, this has been stumping me for the last few days.
-                            I've even considered changing the design of the weapon feature altogether.
-                            If I can't find a solution soon, I'll have to change the feature.
+                            With this setup, we figured out the right side (green) of the arrow was doing the pointing.
+                            After a little rotating, we found that 90 degrees gave the sought-after effect.
                         </p>
-                       
-                        <h2 class="section-heading"><u><a href="devlog9.html">Continued In  Devlog #9: Bugs Be Gone</a></u></h2> 
+
+                        <center><img class="img-fluid" src="assets/gif/correctarrow.gif" style="width:50%"></center>
+
+                        <p style="text-indent: 25px;">
+                            AND NOW IT WORKS!
+                        </p>
+
+                        <h2 class="section-heading">Thank You</h2>
+                        <p style="text-indent: 25px;">
+                            A sincere & huge thank you to my friend Nick for helping me with this bug.
+                            Sometimes all you need is someone to point out the simple things right in front of you.
+                            I find it very funny how programming is like that sometimes.
+                        </p>
+                        <p style="text-indent: 25px;">
+                            Check him out:
+                            <a href="https://github.com/KantKontrol" target="_blank">His GitHub</a>
+                        </p>
 
                     </div>
                 </div>

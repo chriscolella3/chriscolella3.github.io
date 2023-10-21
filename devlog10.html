@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #3</title>
+        <title>Devlog #10</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -43,6 +43,13 @@
                 text-align: right;rgb(240, 240, 240)rgb(240, 240, 240)
             }
 
+figcaption {
+  color: #222;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+
             </style>
             
     </head>
@@ -50,7 +57,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="blogindex.html">Back To Devlog Homepage</a>
+                <a class="navbar-brand" href="blogpage3.html">Back To Devlog Page 3</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     </ul>
@@ -58,15 +65,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/background/godotbackground2.png')">
+        <header class="masthead" style="background-image: url('assets/img/background/v7background.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #3</h1>
-                            <h2 class="subheading">The Real Development Starts</h2>
+                            <h1>Devlog #10</h1>
+                            <h2 class="subheading">Attacking Enemies</h2>
                             <span class="meta">
-                                Posted September 24, 2023
+                                Posted October 10, 2023
                             </span>
                         </div>
                     </div>
@@ -83,96 +90,98 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">The Original Idea</h2>
+                        <h2 class="section-heading">Firing The Weapon</h2>
                         <p style="text-indent: 25px;">
-                            Originally, I wanted to make an idle game. But got stuck trying make my idea unique. 
-                            I started searching the Google Play store for ideas and to see what games already existed.
-                            After not benefitting from my search, I started to consider what other genres of games that I enjoyed.
-                            Similar to my love for idle games, I also enjoyed <a href="https://en.wikipedia.org/wiki/Bullet_hell" target="_blank">bullet hell games</a>.
-                            In short, a Bullet hell game consists of an extremely  large amount of projectiles being fired at the player. 
-                            The player then has to dodge these projectiles without getting hit.
+                            With the weapon sprite looking in the correct direction, it now needs to fire a projectile in that direction.
+                            Remembering that I had a working bullet scene from my original game idea, I could repurpose it for this.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Remembering this game genre , I immediately thought about combining it with my game idea. An idle bullet hell. 
+                            I created a new function that would be called once the sprite looks towards an enemy.
+                            In this function, an instance of the bullet would be created and propelled in whatever direction it was facing.
+                            I did have to tinker with the bullet's movement, as the original scene only accounts for the y-axis.
+                            Eventually, I was able to get the following working:
                         </p>
 
-                        <h2 class="section-heading">No Idea What I'm Doing</h2>
+                        <center><img class="img-fluid" src="assets/gif/shootingv1.gif" style="width:40%"></center>
+
                         <p style="text-indent: 25px;">
-                            Now that I have somewhat of an idea, and some experience using Godot, its time to begin the development.
+                            The bullet sprite wasn't facing the correct direction so I rotated it 90 degrees.
+                            I also fixed the number of hframes the bullet sprite had, since I only wanted one arrow.
+                            Each hframe is a column in the sprite sheet.
+                            Instead of showing the entire spritesheet, this way I'm able to use whatever part I need.
+                        </p>
+
+                        <center><img class="img-fluid" src="assets/gif/shootingv2.gif" style="width:40%"></center>
+
+                        <p style="text-indent: 25px;">
+                            After I fixed that, I noticed when there were several enemies to fire at, the bullet wasn't behaving properly.
+                            Visually it seemed to be spawning other bullets out of already fired bullets.
+                            I believe this bug was occurring due to how the bullet was being instantiated.
+                            Instead of the instance being a child in the main scene, it was a child of itself.
+                            Thankfully I was able to find a guide to shooting projectiles on <a href="https://kidscancode.org/godot_recipes/4.x/" target="_blank">KidsCanCode.org</a>.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Starting a new project was incredibly daunting and I wasn't sure what to start with first.
-                            I knew I had to start somewhere, so I decided to start small. 
-                            I need to have a clear goal in mind so I don't overwhelm myself.
+                            With this guide, I was able to add a child to the root of the scene tree, instead of the current scene.
+                            Thankfully, this fixed the bug.
                         </p>
 
-                        <p style="text-indent: 25px;">
-                            The first feature I wanted to tackle was player movement. 
-                            Using knowledge from the Dodge The Creeps tutorial, I was able to get movement working pretty fast.
-                            I also figured out how to add a background to the game as well.
-                            I do have to note, I am using WASD to move the player. 
-                            This initially was for testing, as the final game would have a joystick for movement.
-                        </p>
+                        <center><img class="img-fluid" src="assets/img/Script/shootfunction.png" style="width:100%"></center>
+                        <br>
+                        <center><img class="img-fluid" src="assets/gif/shootingv3.gif" style="width:45%"></center>
 
+                        <h2 class="section-heading">Enemy #2</h2>
                         <p style="text-indent: 25px;">
-                            I do have to note, I am using WASD to move the player. 
-                            This initially was for testing, as the final game would have a joystick for movement.
-                        </p>
-
-                    <div class="row">
-                        <div class="column">
-                            <img src="assets/img/stock/godotstock12.png" style="width:100%" height="400">
-                          </div>
-                          <div class="column">
-                            <img src="assets/img/stock/godotstock11.png" style="width:100%" height="400">
-                          </div>
-                          <div class="column">
-                            <img src="assets/gif/playermovement.gif" style="width:100%" height="400">
-                          </div>
-                    </div>
-
-                        <h2 class="section-heading">Firing Projectiles</h2>
-                        <p style="text-indent: 25px;">
-                            The next feature I wanted to implement was projectiles firing from the player. 
-                            Implementing this feature took some time as I tried to find a suitable tutorial to learn from.
-                            Eventually, I found a simple projectile tutorial and added it to my player.
+                            During the time I spent implementing weapon shooting, I also attempted to add a second enemy to the spawn pool.
+                            This proved to be tricky since the spawning system only accommodated for a single enemy type.
+                            To my surprise, I was able to "add" another enemy type, but that started to cause some issues.
                         </p>
 
                         <div class="row">
                             <div class="column">
-                                <img class="img-fluid" src="assets/gif/player.gif" style="width:105%" height="400">
+                                <figure>
+                                <center><img class="img-fluid" src="assets/img/skull.png" style="width:50%"></center>
+                                <figcaption>Enemy #1</figcaption>
+                            </figure>
                             </div>
-                              <div class="column">
-                                <img src="assets/img/stock/godotstock14.png" style="width:300%">
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
                             </div>
-                        </div>
+                            <div class="column">
+                                <figure>
+                                <center><img src="assets/img/hand.png" style="width:50%"></center>
+                                <figcaption>Enemy #2</figcaption>
+                            </figure>
+                            </div>
+                          </div>
+
+                          <br><br>
+
+                        <center><img class="img-fluid" src="assets/gif/secondenemy.gif" style="width:45%"></center>
 
                         <p style="text-indent: 25px;">
-                            The function on line 5 is responsible for moving the projectile.
-                            It is one of the many built-in functions in Godot.
-                            It runs 60 times a second.
-                            Using this function, I was able to constantly set the position of a projectile along the Y-axis.
-                            Giving it the illusion of being fired.
+                            The second enemy uses the same spawn system and can damage the tower, but that's all it can do.
+                            In comparison, upon being killed enemy #1 emits a signal.
+                            This signal is responsible for incrementing a variable that keeps track of enemies killed in a wave.
+                            That data is then being used to determine when to spawn the next wave.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            The function on line 8 is responsible for deleting the projectile when it's safely offscreen. 
-                            It's connected to a VisibleOnScreenNotifier2D Node that emits a signal when whatever it's attached to goes offscreen.
-                            This is to save resources and to avoid unnecessary entity overflow.
+                            With an an additional enemy spawning, the amount of expected enemies killed in a wave will double.
+                            This would break the spawning system completely. 
+                            To prevent the system from breaking, enemy #2 does not emit any signals.
                         </p>
 
-                        <h2 class="section-heading">Unforeseen Changes</h2>
                         <p style="text-indent: 25px;">
-                            Feeling pretty good about my progress, I decided to check out the Google Play store again for ideas.
-                            It was at this time that I would stumble upon a game called <a href="https://play.google.com/store/apps/details?id=com.genetix.lonetower&hl=en_US&gl=US" target="_blank">Lone Tower</a>.
-                            Upon seeing this game, I was hooked. The idea was so simple, yet it was fun to play.
-                            Without even second-guessing it, I knew what kind of game I was going to be making instead.
+                            Soon I'll have to implement a better solution, maybe research inheritance and make a base enemy class.
+                            Or revamp the spawning system altogether.
                         </p>
 
-                        <b><a href="devlog2.html" class="previous round">&#8249; Previous Devlog: #2</a></b>
-                        <b><a class="f-r" href="devlog4.html" class="next round">Next Devlog: #4 &#8250;</a></b>
+                        <b><a href="devlog9.html" class="previous round">&#8249; Previous Devlog: #9</a></b>
+                        <b><a class="f-r" class="next round">Next Devlog: Coming Soon &#8250;</a></b>
+                        
+                        <!--<b><a class="f-r" href="devlog10-5.html" class="next round">Next Devlog: #10.5 &#8250;</a></b>-->
 
                     </div>
                 </div>

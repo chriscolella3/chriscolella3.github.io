@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #</title>
+        <title>Devlog #10.5</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -50,7 +50,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="blogindex.html">Back To Devlog Homepage</a>
+                <a class="navbar-brand" href="blogpage3.html">Back To Devlog Page 3</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     </ul>
@@ -58,15 +58,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/godotstock1.png')">
+        <header class="masthead" style="background-image: url('assets/img/Background/visualsbackground.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog Template</h1>
-                            <h2 class="subheading">TITLE</h2>
+                            <h1>Devlog #10.5</h1>
+                            <h2 class="subheading">Improving Visuals</h2>
                             <span class="meta">
-                                Posted MONTH DAY, 2023
+                                Posted October 22, 2023
                             </span>
                         </div>
                     </div>
@@ -83,26 +83,102 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">TITLE</h2>
-                        <p style="text-indent: 25px;"></p>
+                        <h2 class="section-heading">My Eyes!</h2>
+                        <p style="text-indent: 25px;">
+                            Over the course of development for this game, I've been using basic visuals while I focus on core gameplay mechanics.
+                            As the game evolves technically, I feel it's time to upgrade the visuals for a change and have a little fun.
+                            Also because I'm tired of looking at the same green screen everytime I test the game.
+                        </p>
+                        
+                        <h2 class="section-heading">Menus</h2>
+                        <p style="text-indent: 25px;">
+                            The first additions I wanted to make were proper menu screens.
+                            This included a main menu, options menu, and pause menu while ingame.
+                            A quick tutorial search taught me how to add and manage buttons within my scenes.
+                            Within no time I had a few menus up and working.
+                        </p>
 
-                        <h2 class="section-heading">TITLE</h2>
-                        <p style="text-indent: 25px;"></p>
+                        <div class="row">
+                            <div class="column">
+                                <img class="img-fluid" src="assets/img/Scene/startmenu.png" style="width:200%">
+                            </div>
+                            <div class="column">
+                                <img class="img-fluid" src="assets/img/Scene/menuUI.png" style="width:100%">
+                            </div>
+                            <div class="column">
+                                <img class="img-fluid" src="assets/img/Scene/paused.png" style="width:200%">
+                            </div>
+                          </div>
 
-                        <h2 class="section-heading">TITLE</h2>
-                        <p style="text-indent: 25px;"></p>
-                       
-                        <!--
-                        <center><img class="img-fluid" src="assets/img/Scene/ingamemenu.png" style="width:30%"></center>
-                        <center><img class="img-fluid" src="assets/img/Scene/paused.png" style="width:35%"></center>
-                        <center><img class="img-fluid" src="assets/img/Scene/startmenu.png" style="width:35%"></center>
-                        <center><img class="img-fluid" src="assets/img/Scene/menuUI.png" style="width:25%"></center>
+                          <p style="text-indent: 25px;">
+                            It was fairly simple to setup, especially with the code that was driving the menus.
+                            All I had to do was add buttons and hook up their signals upon being pressed.
+                        </p>
 
-                        <center><img class="img-fluid" src="assets/img/Script/menucode.png" style="width:50%"></center>
+                        <div class="row">
+                            <div class="column">
+                                <img  src="assets/img/Script/menucode.png" style="width:200%">
+                            </div>
+                            <div class="column">
+                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img class="img-fluid" src="assets/img/Scene/ingamemenu.png" style="width:100%">
+                            </div>
+                          </div>
 
-                        <center><img class="img-fluid" src="assets/gif/pausemenu.gif" style="width:35%"></center>
-                        <center><img class="img-fluid" src="assets/gif/mainmenu.gif" style="width:35%"></center>
-                        -->
+                          <div class="row">
+                            <div class="column">
+                                <img class="img-fluid" src="assets/gif/mainmenu.gif" style="width:100%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img class="img-fluid" src="assets/gif/pausemenu.gif" style="width:100%">
+                            </div>
+                          </div>
+
+                        <h2 class="section-heading">Assets Galore</h2>
+                        <p style="text-indent: 25px;">
+                            I went back to <a href="https://itch.io/" target="_blank">Itch.io</a> to find some more free assets.
+                            And while I was browsing I found a sweet pixel art mountain backdrop.
+                            I replaced the main menu backdrop with this instead.
+                            I also found a forest background so I replaced the ingame backdrop with that too.
+                        </p>
+
+                        <div class="row">
+                            <div class="column">
+                                <img src="assets/img/Scene/mainmenu.png" style="width:150%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/Scene/gamebackground.png" style="width:150%">
+                            </div>
+                          </div>
+
+                          <h2 class="section-heading">Extra Flair</h2>
+                          <p style="text-indent: 25px;">
+                            Just for fun, I wanted to have an intro fade in first instead of the main menu.
+                            I found a short video that explained how to fade an image in & out using the AnimationPlayer node.
+                        </p>
+
+                        <center><img class="img-fluid" src="assets/gif/introscreen.gif" style="width:45%"></center>
+
+                        <h2 class="section-heading">What's Next?</h2>
+                        <p style="text-indent: 25px;">
+                            Before I attempt to add a new feature, I'm going to make a master to do list.
+                            I need to organize the features I want to implement, features I need to change/fix, bugs, and so on.
+                            Just to make it easier for myself, and stay focused on the next task.
+                            Overall I'm very happy with how far I've gotten, and its been an absolute blast to make.
+                            With each new addition, publishing this game isnt such a far fetched dream anymore.
+                      </p>
+
+                        <br>
+                        <b><a href="devlog10.html" class="previous round">&#8249; Previous Devlog: #10</a></b>                        
+                        <!--<b><a class="f-r" href="devlog11.html" class="next round">Next Devlog: #11 &#8250;</a></b>-->
 
                     </div>
                 </div>

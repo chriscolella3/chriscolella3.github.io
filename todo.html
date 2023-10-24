@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Master To-Do List</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="assets/css/blogstyles.css" rel="stylesheet" />
+
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            .column {
+              float: left;
+              width: 33.33%;
+              padding: 5px;
+            }
+            
+            /* Clearfix (clear floats) */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            </style>
+            
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="blogindex.html">Back To Devlog Homepage</a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/Background/v7background.png">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Master To-Do List</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>-->
+           <!--<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>-->
+            <!--<a><img class="img-fluid" src="assets/img/stockgodotimage.png"/></a>-->
+
+
+            
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                        <h2 class="section-heading">To-Do</h2>
+                        <p style="text-indent: 25px;">
+                            <ul style="list-style-type:disc;">
+                                <li>Enemies have HP</li>
+                                <li>Upgrades for tower</li>
+                                <li>Currency System</li>
+                                <li>Reimplement Spawning System</li>
+                                <li>Dynamic Wave Creation System</li>
+                                <li>Redo current visuals</li>
+                                <li>Weapon levels? / New weapons?</li>
+                                <li>Saving player data</li>
+
+                              </ul>
+                        </p>
+                        
+                        <h2 class="section-heading">Known Bugs</h2>
+                        <p style="text-indent: 25px;">
+                            <ul style="list-style-type:disc;">
+                                <li>If a projectile has been fired, and not removed yet, going to the main menu will cause it to continue to fly across the screen.</li>
+                                <li>First Wave and Next Wave timers need to be configured correctly.</li>
+                                <li>The spawning system only accomodates for a single enemy type.</li>
+                                <li>In the top lefthand corner of the main & options menu, the coordinates (0,0) can be seen. Current bandage: place a Sprite2D over it.</li>
+
+                              </ul>
+                        </p>
+
+                        <h2 class="section-heading">Features Completed</h2>
+                        <p style="text-indent: 25px;">
+                            <ul style="list-style-type:disc;">
+                                <li>Tower hit registration</li>
+                                <li>Enemy hit registration</li>
+                                <li>Enemies spawn in waves / vary in # each wave and spawning speed</li>
+                                <li>Tower weapon looks at, and shoots a projectile at nearby enemies</li>
+                                <li>Main menu & being able to pause the game</li>
+                                <li>Enemies hit registration</li>
+
+                              </ul>
+                        </p>
+
+                    </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chris-colella/" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chriscolella3" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="assets/js/scripts.js"></script>
+    </body>
+</html>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #10.5</title>
+        <title>Devlog #11</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,15 +58,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/Background/visualsbackground.png')">
+        <header class="masthead" style="background-image: url('assets/img/background/upgrades.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #10.5</h1>
-                            <h2 class="subheading">Improving Visuals</h2>
+                            <h1>Devlog #11</h1>
+                            <h2 class="subheading">Health & Upgrades</h2>
                             <span class="meta">
-                                Posted October 22, 2023
+                                Posted November 30, 2023
                             </span>
                         </div>
                     </div>
@@ -83,102 +83,75 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">My Eyes!</h2>
+                        <h2 class="section-heading">Small break</h2>
                         <p style="text-indent: 25px;">
-                            Over the course of development for this game, I've been using basic visuals while I focus on core gameplay mechanics.
-                            As the game evolves technically, I feel it's time to upgrade the visuals for a change and have a little fun.
-                            Also because I'm tired of looking at the same green screen everytime I test the game.
+                            After the small visual upgrade I gave to my game, I took a short break to not get burned out. 
+                            I want to stay interested in developing this game and after about a month of working on it I needed a break.
+                            I did sporadically work on it but only added minor features and fixed some bugs. 
                         </p>
+
+                        <h2 class="section-heading">New additions</h2>
+                        <p style="text-indent: 25px;">
+                            After my short break, I did manage to knock a few features off of my <a href="todo.html" target="_blank">To-Do List</a>.
+                            These features being: Enemy HP, Tower Upgrades, Currency System, Multiple Enemy Types, Attacking Closest Enemy, and a few misc bugs.                            
+                        </p>
+
+                        <h3 class="section-heading">Enemies</h3>
+                        <p style="text-indent: 25px;">
+                            Enemies now have HP, and can be attacked and killed.
+                            They also reward money upon death to be used for upgrades.
+                        </p>
+
+                        <div class="row">
+                            <div class="column">
+                                <img src="assets/img/Scene/enemyhp.png" style="width:50%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                            </div>
+                            <div class="column">
+                                <img src="assets/img/Scene/enemy2hp.png" style="width:50%">
+                            </div>
+                          </div>
+                          
+                          <img src="assets/img/Script/moneyscript.png" style="width:100%">
+
+                        <h3 class="section-heading">Tower</h3>
+                        <p style="text-indent: 25px;">
+                              The tower now has upgradable damage & attack speed.
+                        </p>
+                          
+                        <img src="assets/img/Scene/upgradetext.png" style="width:75%">
+                        <br><br>
+                        <img src="assets/img/Scene/money.png" style="width:75%">
                         
-                        <h2 class="section-heading">Menus</h2>
                         <p style="text-indent: 25px;">
-                            The first additions I wanted to make were proper menu screens.
-                            This included a main menu, options menu, and pause menu while ingame.
-                            A quick tutorial search taught me how to add and manage buttons within my scenes.
-                            Within no time I had a few menus up and working.
-                        </p>
-
-                        <div class="row">
-                            <div class="column">
-                                <img class="img-fluid" src="assets/img/Scene/startmenu.png" style="width:200%">
-                            </div>
-                            <div class="column">
-                                <img class="img-fluid" src="assets/img/Scene/menuUI.png" style="width:100%">
-                            </div>
-                            <div class="column">
-                                <img class="img-fluid" src="assets/img/Scene/paused.png" style="width:200%">
-                            </div>
-                          </div>
-
-                          <p style="text-indent: 25px;">
-                            It was fairly simple to setup, especially with the code that was driving the menus.
-                            All I had to do was add buttons and hook up their signals upon being pressed.
-                        </p>
-
-                        <div class="row">
-                            <div class="column">
-                                <img  src="assets/img/Script/menucode.png" style="width:200%">
-                            </div>
-                            <div class="column">
-                              <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img class="img-fluid" src="assets/img/Scene/ingamemenu.png" style="width:100%">
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="column">
-                                <img class="img-fluid" src="assets/gif/mainmenu.gif" style="width:100%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img class="img-fluid" src="assets/gif/pausemenu.gif" style="width:100%">
-                            </div>
-                          </div>
-
-                        <h2 class="section-heading">Assets Galore</h2>
-                        <p style="text-indent: 25px;">
-                            I went back to <a href="https://itch.io/" target="_blank">Itch.io</a> to find some more free assets.
-                            And while I was browsing I found a sweet pixel art mountain backdrop.
-                            I replaced the main menu backdrop with this instead.
-                            I also found a forest background so I replaced the ingame backdrop with that too.
-                        </p>
-
-                        <div class="row">
-                            <div class="column">
-                                <img src="assets/img/Scene/mainmenu.png" style="width:150%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/Scene/gamebackground.png" style="width:150%">
-                            </div>
-                          </div>
-
-                          <h2 class="section-heading">Extra Flair</h2>
-                          <p style="text-indent: 25px;">
-                            Just for fun, I wanted to have an intro fade in first instead of the main menu.
-                            I found a short video that explained how to fade an image in & out using the AnimationPlayer node.
-                        </p>
-
-                        <center><img class="img-fluid" src="assets/gif/introscreen.gif" style="width:45%"></center>
-
-                        <h2 class="section-heading">What's Next?</h2>
-                        <p style="text-indent: 25px;">
-                            Before I attempt to add a new feature, I'm going to make a master to do list.
-                            I need to organize the features I want to implement, features I need to change/fix, bugs, and so on.
-                            Just to make it easier for myself, and stay focused on the next task.
-                            Overall I'm very happy with how far I've gotten, and its been an absolute blast to make.
-                            With each new addition, publishing this game isnt such a far fetched dream anymore.
+                            These scripts are what drive the values that are then converted into text for the buttons.
                       </p>
 
-                        <br>
-                        <b><a href="devlog10.html" class="previous round">&#8249; Previous Devlog: #10</a></b>                        
-                        <b><a class="f-r" href="devlog11.html" class="next round">Next Devlog: #11 &#8250;</a></b>
+                          <img src="assets/img/Script/upgradefunctions.png" style="width:100%">
+                          <br><br>
+                          <img src="assets/img/Script/upgrademanager.png" style="width:100%">
+                          <br><br>
+
+                        <p style="text-indent: 25px;">
+                            This script below is responsible for selecting the nearest enemy and attacking it.
+                            In english, this script is checking when an enemy is within the attack range, and if it is, look towards it and fire an arrow at it.
+                            The timer on the last line is what keeps the weapon from firing like a machine gun, forcing it to wait between shots.
+                        </p>
+
+                          <img src="assets/img/Script/closestenemy.png" style="width:100%">
+
+                          <h3 class="section-heading">Short But Sweet</h3>
+                          <p style="text-indent: 25px;">
+                              Though this devlog was short, I just wanted to give a quick update on what I've recently completed.
+                              These features aren't very technical either, just some simple variable manipulation.
+                              Next I'm going to put more work into the enemy spawning system, maybe make it a bit more flexible.
+                          </p>
+
+                          <br><br>
+                          <b><a href="devlog10-5.html" class="previous round">&#8249; Previous Devlog: #10.5</a></b>                        
+                          <!--<b><a class="f-r" href="devlog11.html" class="next round">Next Devlog: #11 &#8250;</a></b>-->
 
                     </div>
                 </div>

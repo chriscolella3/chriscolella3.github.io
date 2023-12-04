@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #11</title>
+        <title>Devlog #12</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,15 +58,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/Background/upgrades.png')">
+        <header class="masthead" style="background-image: url('assets/img/Background/upgradesp2.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #11</h1>
-                            <h2 class="subheading">Health & Upgrades</h2>
+                            <h1>Devlog #12</h1>
+                            <h2 class="subheading">Small Tweaks, Big Changes</h2>
                             <span class="meta">
-                                Posted November 30, 2023
+                                Posted December 4, 2023
                             </span>
                         </div>
                     </div>
@@ -83,75 +83,75 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">Small break</h2>
+                        <h2 class="section-heading">More upgrades</h2>
                         <p style="text-indent: 25px;">
-                            After the small visual upgrade I gave to my game, I took a short break to not get burned out. 
-                            I want to stay interested in developing this game and after about a month of working on it I needed a break.
-                            I did sporadically work on it but only added minor features and fixed some bugs. 
+                            Since I figured out how to manage adding upgrades, I decided to add some more. 
+                            The new ones I added are extra HP, HP regeneration, and increased attack range.
                         </p>
 
-                        <h2 class="section-heading">New additions</h2>
+                        <img src="assets/img/Scene/upgrades.png" style="width:100%">
+
                         <p style="text-indent: 25px;">
-                            After my short break, I did manage to knock a few features off of my <a href="todo.html" target="_blank">To-Do List</a>.
-                            These features being: Enemy HP, Tower Upgrades, Currency System, Multiple Enemy Types, Attacking Closest Enemy, and a few misc bugs.                            
+                            Adding these new upgrades required slight reworking of a few variables to allow for them to work.
+                            For example, now that HP can regenerate, I need to know what the max HP is to stop the regen from going over.
                         </p>
 
-                        <h3 class="section-heading">Enemies</h3>
                         <p style="text-indent: 25px;">
-                            Enemies now have HP, and can be attacked and killed.
-                            They also reward money upon death to be used for upgrades.
+                            As for range, I had to figure out how to accurately show the radius to the player.
+                            After some research, I discovered a built-in <a href="https://docs.godotengine.org/en/stable/tutorials/2d/custom_drawing_in_2d.html" target="_blank">draw()</a>
+                            function and found a page in the Godot Docs about it. 
+                            Through this, I drew a circle and manually aligned  it with the attack range collision shape.
                         </p>
 
-                        <div class="row">
-                            <div class="column">
-                                <img src="assets/img/Scene/enemyhp.png" style="width:50%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/Scene/enemy2hp.png" style="width:50%">
-                            </div>
-                          </div>
-                          
-                          <img src="assets/img/Script/moneyscript.png" style="width:100%">
+                        <center><img src="assets/img/Scene/range.png" style="width:60%"></center>
 
-                        <h3 class="section-heading">Tower</h3>
                         <p style="text-indent: 25px;">
-                              The tower now has upgradable damage & attack speed.
+                            After lining the two circles up, I attached the upgrade button to each radius variable. 
+                            After each upgrade purchase, both circles will update and increase their radius. 
+                            Figuring this out was pretty easy as I had easy access to these variables and had to change their hardcoded radius values into a dynamic variable.
                         </p>
-                          
-                        <img src="assets/img/Scene/upgradetext.png" style="width:75%">
+
+                        <h2 class="section-heading">That Was Easy</h2>
+                        <p style="text-indent: 25px;">
+                            While brainstorming how to spawn waves infinitely, I initially thought of generating wave nodes dynamically. 
+                            I could write a small algorithm to determine all aspects of each wave and feed it as the next wave. 
+                            While I was in the process of attempting to figure out how to do this, I had a realization.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            Instead of having a bunch of predetermined waves, or an algorithm to generate waves, I could spawn enemies infinitely. 
+                            I removed the section of code that was clicking through an array containing all waves. 
+                            Then, I used randi_range() which gives a random integer within a range to determine how many enemies spawn.
+                        </p>
+                        <center><img src="assets/img/Script/randi.png" style="width:100%"></center>
+
+                        <p style="text-indent: 25px;">
+                            With this change, I removed an if statement that checked for any more waves to spawn, and instead just looped it. 
+                            Now, after x amount of enemies were killed, the next wave would start and pick another random number of enemies to spawn.
+                        </p>
+
+                        <center><img src="assets/img/Script/enemiesremaining.png" style="width:100%"></center>
+                        <br>
+                        <br>
+                        <center><img src="assets/img/Script/wavecap.png" style="width:100%"></center>
+
+                        <p style="text-indent: 25px;">
+                            The best part of this change is that I can set a condition to happen after x waves. 
+                            For example, after the first five waves, a new enemy type spawns, or the randi_range() of enemies gets larger. 
+                            This allows the scaling of the game to be flexible.
+                        </p>
+
+                        <p style="text-indent: 25px;">
+                            Instead of using a blurry gif, I'll show an actual video.
+                            At the time of writing, for some reason, the only quality available is 480p. 
+                            Hopefully, that isn't the case now.
+                        </p>
+
+                        <center></center><iframe width="600" height="340" src="https://www.youtube.com/embed/mdKxR8-n51M?si=TYQmYqJRzPFxVvRN"></iframe></center>
+
                         <br><br>
-                        <img src="assets/img/Scene/money.png" style="width:75%">
-                        
-                        <p style="text-indent: 25px;">
-                            These scripts are what drive the values that are then converted into text for the buttons.
-                      </p>
-
-                          <img src="assets/img/Script/upgradefunctions.png" style="width:100%">
-                          <br><br>
-                          <img src="assets/img/Script/upgrademanager.png" style="width:100%">
-                          <br><br>
-
-                        <p style="text-indent: 25px;">
-                            This script below is responsible for selecting the nearest enemy and attacking it.
-                            In english, this script is checking when an enemy is within the attack range, and if it is, look towards it and fire an arrow at it.
-                            The timer on the last line is what keeps the weapon from firing like a machine gun, forcing it to wait between shots.
-                        </p>
-
-                          <img src="assets/img/Script/closestenemy.png" style="width:100%">
-
-                          <h3 class="section-heading">Short But Sweet</h3>
-                          <p style="text-indent: 25px;">
-                              Though this devlog was short, I just wanted to give a quick update on what I've recently completed.
-                              These features aren't very technical either, just some simple variable manipulation.
-                              Next I'm going to put more work into the enemy spawning system, maybe make it a bit more flexible.
-                          </p>
-
-                          <br><br>
-                          <b><a href="devlog10-5.html" class="previous round">&#8249; Previous Devlog: #10.5</a></b>                        
-                          <b><a class="f-r" href="devlog12.html" class="next round">Next Devlog: #12 &#8250;</a></b>
+                        <b><a href="devlog11.html" class="previous round">&#8249; Previous Devlog: #11</a></b>                        
+                        <!--<b><a class="f-r" href="devlog11.html" class="next round">Next Devlog: #11 &#8250;</a></b>-->
 
                     </div>
                 </div>

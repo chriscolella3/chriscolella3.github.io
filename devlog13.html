@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #12</title>
+        <title>Devlog #13</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,15 +58,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/Background/upgradesp2.png')">
+        <header class="masthead" style="background-image: url('assets/img/Background/savebackground.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #12</h1>
-                            <h2 class="subheading">Small Tweaks, Big Changes</h2>
+                            <h1>Devlog #13</h1>
+                            <h2 class="subheading">Rounding The Edges</h2>
                             <span class="meta">
-                                Posted December 4, 2023
+                                Posted December 27, 2023
                             </span>
                         </div>
                     </div>
@@ -83,75 +83,92 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">More upgrades</h2>
+                        <h2 class="section-heading">In Retrospect</h2>
                         <p style="text-indent: 25px;">
-                            Since I figured out how to manage adding upgrades, I decided to add some more. 
-                            The new ones I added are extra HP, HP regeneration, and increased attack range.
-                        </p>
-
-                        <img src="assets/img/Scene/upgrades.png" style="width:100%">
-
-                        <p style="text-indent: 25px;">
-                            Adding these new upgrades required slight reworking of a few variables to allow for them to work.
-                            For example, now that HP can regenerate, I need to know what the max HP is to stop the regen from going over.
+                            First of all, happy olidays to all who read this! As we approach the New Year, I'm reflecting on how much progress I've made so far.
+                            I've learned an incredible amount about what it takes to make a game, and harness the power of a game engine.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            As for range, I had to figure out how to accurately show the radius to the player.
-                            After some research, I discovered a built-in <a href="https://docs.godotengine.org/en/stable/tutorials/2d/custom_drawing_in_2d.html" target="_blank">draw()</a>
-                            function and found a page in the Godot Docs about it. 
-                            Through this, I drew a circle and manually aligned  it with the attack range collision shape.
-                        </p>
-
-                        <center><img src="assets/img/Scene/range.png" style="width:60%"></center>
-
-                        <p style="text-indent: 25px;">
-                            After lining the two circles up, I attached the upgrade button to each radius variable. 
-                            After each upgrade purchase, both circles will update and increase their radius. 
-                            Figuring this out was pretty easy as I had easy access to these variables and had to change their hardcoded radius values into a dynamic variable.
-                        </p>
-
-                        <h2 class="section-heading">That Was Easy</h2>
-                        <p style="text-indent: 25px;">
-                            While brainstorming how to spawn waves infinitely, I initially thought of generating wave nodes dynamically. 
-                            I could write a small algorithm to determine all aspects of each wave and feed it as the next wave. 
-                            While I was in the process of attempting to figure out how to do this, I had a realization.
+                            It's an interesting feeling getting my cousins to playtest various builds of my game on my phone.
+                            Playing something that did not exist 4 months ago, willed into existence just because I felt like making a game.
+                            With each Devlog I post, and each new feature I create, it all keeps reinforcing my love to create.
+                            I look forward to what 2024 holds for myself and the future of this side project.
                         </p>
 
                         <p style="text-indent: 25px;">
-                            Instead of having a bunch of predetermined waves, or an algorithm to generate waves, I could spawn enemies infinitely. 
-                            I removed the section of code that was clicking through an array containing all waves. 
-                            Then, I used randi_range() which gives a random integer within a range to determine how many enemies spawn.
+                            Anyways, here is Devlog #13.
                         </p>
-                        <center><img src="assets/img/Script/randi.png" style="width:100%"></center>
+
+                        <h2 class="section-heading">New Additions & Changes</h2>
+                        <p style="text-indent: 25px;">
+                            At this point in these Devlogs, they will most likely start becoming shorter and more to the point.
+                            I feel I set a strong foundation for my process and how I've arrived to the position I'm in now.
+                            With that being said, here is a brief rundown of the new additions and changes in this build.
+
+                        <ul>
+                            <li>Misc bug fixes</li>
+                            <li>Adjusted range indicator to be thicker & easier to see</li>
+                            <li>Upgrade balancing</li>
+                            <li>Additional Volume Sliders</li>
+                            <li>Game over screen</li>
+                            <li>Tinkering with better UI</li>
+                            <li>Player stats</li>
+                            <li>Basic save system</li>
+                        </ul>
+                        </p>
 
                         <p style="text-indent: 25px;">
-                            With this change, I removed an if statement that checked for any more waves to spawn, and instead just looped it. 
-                            Now, after x amount of enemies were killed, the next wave would start and pick another random number of enemies to spawn.
+                            Here are some visuals for these new additions.
                         </p>
 
-                        <center><img src="assets/img/Script/enemiesremaining.png" style="width:100%"></center>
-                        <br>
-                        <br>
-                        <center><img src="assets/img/Script/wavecap.png" style="width:100%"></center>
+                        <div class="row">
+                            <div class="column">
+                                <center><img src="assets/img/Scene/playerstats.png" style="width:100%"></center>
+                            </div>
+                            <div class="column">
+                                <center><img src="assets/img/Scene/newui.png" style="width:100%"></center>
+                            </div>
+                            <div class="column">
+                                <center><img src="assets/img/Scene/gameover.png" style="width:100%"></center>
+                            </div>
+                          </div>
+                          <br>
+                          <center><img src="assets/img/Scene/thickerrange.png" style="width:50%"></center>
 
+
+                        <h2 class="section-heading">Save System</h2>
                         <p style="text-indent: 25px;">
-                            The best part of this change is that I can set a condition to happen after x waves. 
-                            For example, after the first five waves, a new enemy type spawns, or the randi_range() of enemies gets larger. 
-                            This allows the scaling of the game to be flexible.
+                            I've begun experimenting with saving the players stats.
+                            Initially I was looking into saving the players setting preferences, but realized I could start saving some stats in a config file.
+                            For the time being, I was able to save and load how much money the player has spent, as well as enemies slain.
+                            Each time the game is launched, a load function is called to read any data if the save config exists.
+                            Otherwise, if there is not an already existing save config, one will be made and save data periodically throughout playing the game.
                         </p>
 
+                        <center><img src="assets/img/Scene/stats.png" style="width:50%"></center>
+
+
+                        <h2 class="section-heading">The Future</h2>
                         <p style="text-indent: 25px;">
-                            Instead of using a blurry gif, I'll show an actual video.
-                            At the time of writing, for some reason, the only quality available is 480p. 
-                            Hopefully, that isn't the case now.
+                            For the moment, I'm going to spend some time trying to fix any game breaking bugs, and then tackle enemy HP and damage scaling as the waves go on.
+                            Once I have a very solid foundation, then I will begin adding new content, like new enemies, potentially new weapons, and polishing already existing systems and visuals.
                         </p>
 
-                        <center></center><iframe width="600" height="340" src="https://www.youtube.com/embed/mdKxR8-n51M?si=TYQmYqJRzPFxVvRN"></iframe></center>
+                        <h2 class="section-heading">Farewell 2023, Welcome 2024</h2>
+                        <p style="text-indent: 25px;">
+                           The next Devlog I post will be in 2024, so this marks Devlog #13 as the last Devlog of 2023.
+                           If you have made it this far, I want to sincerely thank you for taking any amount of time to read even just one Devlog.
+                           I came into this expecting nobody to ever read any of these, so if you have, thank you.
+
+                        </p>
+                        <p style="text-indent: 25px;">
+                            Until the next Devlog, Happy New Year! 🥳
+                         </p>
 
                         <br><br>
-                        <b><a href="devlog11.html" class="previous round">&#8249; Previous Devlog: #11</a></b>                        
-                        <b><a class="f-r" href="devlog13.html" class="next round">Next Devlog: #13 &#8250;</a></b>
+                        <b><a href="devlog12.html" class="previous round">&#8249; Previous Devlog: #12</a></b>                        
+                        <!--<b><a class="f-r" href="devlog14.html" class="next round">Next Devlog: #14 &#8250;</a></b>-->
 
                     </div>
                 </div>

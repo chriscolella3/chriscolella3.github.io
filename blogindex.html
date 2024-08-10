@@ -27,6 +27,21 @@
                 text-align: right;rgb(240, 240, 240)rgb(240, 240, 240)
             }
             
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                background-color: #FFFFFF;
+                padding: 10px;
+                }
+
+            .grid-item {
+                background-color: rgba(0, 0, 0, 0);
+                padding: 20px;
+                font-size: 30px;
+                text-align: center;
+            }   
+            
         </style>
 
     </head>
@@ -65,22 +80,25 @@
             </div>
         </header>
 
-        <!-- Main Content-->
+<!--
+
+    OLD DEVLOG LAYOUT
+
+        Main Content
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
-
-                    <!-- Post preview-->
+                    Post preview
                     <div class="post-preview">
                         <a href="devlog0.html">
                             <h2 class="post-title">Devlog #0</h2>
                             <h3 class="post-subtitle">Hello World</h3>
                         </a>
-                    <!-- Divider-->
+                    Divider
                     <hr class="my-4" />
                     </div>
-                    <!-- Post preview-->
+                     Post preview
                     <div class="post-preview">
                         <a href="devlog1.html">
                             <h2 class="post-title">Devlog #1</h2>
@@ -90,7 +108,7 @@
                             Posted on September 20, 2023
                         </p>
                     </div>
-                    <!-- Divider-->
+                    Divider
                     <hr class="my-4" />
 
                     <div class="post-preview">
@@ -102,7 +120,7 @@
                             Posted on September 22, 2023
                         </p>
                     </div>
-                    <!-- Divider-->
+                    Divider
                     <hr class="my-4" />
 
 
@@ -115,7 +133,7 @@
                             Posted on September 24, 2023
                         </p>
                     </div>
-                    <!-- Divider-->
+                    Divider
                     <hr class="my-4" />
 
                     <div class="post-preview">
@@ -127,44 +145,247 @@
                             Posted on September 25, 2023
                         </p>
                     </div>
-                    <!-- Divider-->
+                    Divider
                     <hr class="my-4" />
                     
                     <b><a class="f-r" href="blogpage2.html" class="next round">Next Page &#8250;</a></b>
 
-                    <!-- Pager-->
-                    <!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>-->
+                    Pager
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="https://www.linkedin.com/in/chris-colella/" target="_blank">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
 
-                            <li class="list-inline-item">
-                                <a href="https://github.com/chriscolella3" target="_blank">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    OLD DEVLOG LAYOUT
+
+    -->
+
+        <div class="grid-container">
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog0.html">
+                        <h2 class="post-title">Devlog #0</h2>
+                        <h3 class="post-subtitle">Hello World</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 20, 2023
+                    </p>
                 </div>
+                <hr class="my-4" />
+
             </div>
-        </footer>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog1.html">
+                        <h2 class="post-title">Devlog #1</h2>
+                        <h3 class="post-subtitle">First Steps</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 20, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog2.html">
+                        <h2 class="post-title">Devlog #2</h2>
+                        <h3 class="post-subtitle">A New Idea</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 22, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog3.html">
+                        <h2 class="post-title">Devlog #3</h2>
+                        <h3 class="post-subtitle">The Real Development Starts</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 24, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog4.html">
+                        <h2 class="post-title">Devlog #4</h2>
+                        <h3 class="post-subtitle">First Steps Again</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 25, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog5.html">
+                        <h2 class="post-title">Devlog #5</h2>
+                        <h3 class="post-subtitle">Progress Continues</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on September 28, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog6.html">
+                        <h2 class="post-title">Devlog #6</h2>
+                        <h3 class="post-subtitle">A Breakthrough: Enemy Homing</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 1, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog7.html">
+                        <h2 class="post-title">Devlog #7</h2>
+                        <h3 class="post-subtitle">Better Waves</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 2, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog8.html">
+                        <h2 class="post-title">Devlog #8</h2>
+                        <h3 class="post-subtitle">Frustrated</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 9, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog9.html">
+                        <h2 class="post-title">Devlog #9</h2>
+                        <h3 class="post-subtitle">Bugs Be Gone</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 15, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog10.html">
+                        <h2 class="post-title">Devlog #10</h2>
+                        <h3 class="post-subtitle">Attacking Enemies</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 20, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog10-5.html">
+                        <h2 class="post-title">Devlog #10.5</h2>
+                        <h3 class="post-subtitle">Improving Visuals</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on October 22, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog11.html">
+                        <h2 class="post-title">Devlog #11</h2>
+                        <h3 class="post-subtitle">Health & Upgrades</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on November 30, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog12.html">
+                        <h2 class="post-title">Devlog #12</h2>
+                        <h3 class="post-subtitle">Small Tweaks, Big Changes</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on December 4, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
+            <div class="grid-item">
+
+                <div class="post-preview">
+                    <a href="devlog13.html">
+                        <h2 class="post-title">Devlog #13</h2>
+                        <h3 class="post-subtitle">Rounding The Edges</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted on December 27, 2023
+                    </p>
+                </div>
+                <hr class="my-4" />
+
+            </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

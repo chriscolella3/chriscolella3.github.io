@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Devlog #11</title>
+        <title>Devlog #14</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,15 +58,15 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/Background/upgrades.png')">
+        <header class="masthead" style="background-image: url('assets/img/Background/passivebackground.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Devlog #11</h1>
-                            <h2 class="subheading">Health & Upgrades</h2>
+                            <h1>Devlog #14</h1>
+                            <h2 class="subheading">Still Here</h2>
                             <span class="meta">
-                                Posted November 30, 2023
+                                Posted November 11th, 2024
                             </span>
                         </div>
                     </div>
@@ -83,76 +83,68 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="section-heading">Small break</h2>
+                        <h2 class="section-heading">Hello World, Again</h2>
                         <p style="text-indent: 25px;">
-                            After the small visual upgrade I gave to my game, I took a short break to not get burned out. 
-                            I want to stay interested in developing this game and after about a month of working on it I needed a break.
-                            I did sporadically work on it but only added minor features and fixed some bugs. 
+                            It has almost been a year since I've posted a devlog here.
+                            I started working full time, so that takes up the majority of my time now.
+                            Also, I haven't worked on this project consistently in quite a while either.
+                            But I have been chipping away at it.
                         </p>
 
-                        <h2 class="section-heading">New additions</h2>
+                        <h2 class="section-heading">What's New?</h2>
                         <p style="text-indent: 25px;">
-                            After my short break, I did manage to knock a few features off of my <a href="todo.html" target="_blank">To-Do List</a>.
-                            These features being: Enemy HP, Tower Upgrades, Currency System, Multiple Enemy Types, Attacking Closest Enemy, and a few misc bugs.                            
-                        </p>
 
-                        <h3 class="section-heading">Enemies</h3>
-                        <p style="text-indent: 25px;">
-                            Enemies now have HP, and can be attacked and killed.
-                            They also reward money upon death to be used for upgrades.
-                        </p>
+                            In short, I've completed/been working on the following features:
 
-                        <div class="row">
-                            <div class="column">
-                                <img src="assets/img/Scene/enemyhp.png" style="width:50%">
+                            <ul>
+                                <li>Fixed some minor & game breaking major bugs</li>
+                                <li>Save player data during/after a run</li>
+                                <li>Started saving players option choices (slider bar values, muted/unmuted)</li>
+                                <li>Redid some visuals with a pixel art editor</li>
+                                <li>New upgrade - passive income</li>
+                            </ul>
+
+                            New visuals:
+
+                            <div class="row">
+                                <div class="column">
+                                    <img src="assets/img/Scene/sfxnew.png" style="width:160%">
+                                </div>
+                                <div class="column">
+                                    <img src="assets/img/blank.png" alt="Forest" style="width:0%">
+                                </div>
+                                <div class="column">
+                                    <img src="assets/img/Scene/newmenus.png" style="width:105%">
+                                </div>
                             </div>
-                            <div class="column">
-                                <img src="assets/img/blank.png" alt="Forest" style="width:0%">
-                            </div>
-                            <div class="column">
-                                <img src="assets/img/Scene/enemy2hp.png" style="width:50%">
-                            </div>
-                        </div>
-                          
-                          <img src="assets/img/Script/moneyscript.png" style="width:100%">
+                            <br>
 
-                        <h3 class="section-heading">Tower</h3>
-                        <p style="text-indent: 25px;">
-                              The tower now has upgradable damage & attack speed.
-                        </p>
-                          
-                        <img src="assets/img/Scene/upgradetext.png" style="width:75%">
-                        <br><br>
-                        <img src="assets/img/Scene/money.png" style="width:75%">
-                        
-                        <p style="text-indent: 25px;">
-                            These scripts are what drive the values that are then converted into text for the buttons.
-                      </p>
-
-                          <img src="assets/img/Script/upgradefunctions.png" style="width:100%">
-                          <br><br>
-                          <img src="assets/img/Script/upgrademanager.png" style="width:100%">
-                          <br><br>
-
-                        <p style="text-indent: 25px;">
-                            This script below is responsible for selecting the nearest enemy and attacking it.
-                            In english, this script is checking when an enemy is within the attack range, and if it is, look towards it and fire an arrow at it.
-                            The timer on the last line is what keeps the weapon from firing like a machine gun, forcing it to wait between shots.
+                            Redoing some art has definitely reignited the fire to keep developing this game.
+                            I want to find an art style for this game, and then redo all buttons/sliders/enemies/etc.
                         </p>
 
-                          <img src="assets/img/Script/closestenemy.png" style="width:100%">
+                        <h2 class="section-heading">What's Next?</h2>
+                        <p style="text-indent: 25px;">
 
-                          <h3 class="section-heading">Short But Sweet</h3>
-                          <p style="text-indent: 25px;">
-                              Though this devlog was short, I just wanted to give a quick update on what I've recently completed.
-                              These features aren't very technical either, just some simple variable manipulation.
-                              Next I'm going to put more work into the enemy spawning system, maybe make it a bit more flexible.
-                          </p>
+                            I want to work/implement the following features:
+                            <ul>
+                                <li>Polish core game mechanics</li>
+                                <li>Re-evaluate enemy spawning system / write a stronger wave spawning algorithm</li>
+                                <li>Finalize art style</li>
+                                <li>Add new player-based mechanics</li>
+                                <li>Add reasons to keep playing the game, goals to work towards, in-game rewards</li>
 
-                          <br><br>
-                          <b><a href="devlog10-5.html" class="previous round">&#8249; Previous Devlog: #10.5</a></b>                        
-                          <b><a class="f-r" href="devlog12.html" class="next round">Next Devlog: #12 &#8250;</a></b>
-
+                            </ul>
+                        </p>
+                        <h2 class="section-heading">Theres Always Tomorrow</h2>
+                        <p style="text-indent: 25px;">
+                            Though it has been a long time since I've worked on this project consistently, I keep realizing one thing.
+                            Although things might seem bleak in the moment, but as long as there is tomorrow, there is always the possibility that anything can happen.
+                            So while today I still have a lot I want to accomplish, I sit here knowing that it's all still possible, and <b>will</b> happen one day.
+                        </p>
+                       
+                        <b><a href="devlog13.html" class="previous round">&#8249; Previous Devlog: #13</a></b>                        
+                        <!-- <b><a class="f-r" href="devlog14.html" class="next round">Next Devlog: #14 &#8250;</a></b> -->
                     </div>
                 </div>
             </div>
